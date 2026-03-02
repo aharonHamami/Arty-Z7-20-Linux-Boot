@@ -1,0 +1,11 @@
+#!/bin/sh
+export LD_PRELOAD=$(find /usr/lib /lib -type f -name "libasan.so*")
+
+aws-iot-device-client --help
+
+RETVAL=$?
+if [ $RETVAL -eq 0 ] ; then
+    echo "PASS: aws-iot-device-client: simple test"
+else
+    echo "FAIL: aws-iot-device-client: simple test"
+fi

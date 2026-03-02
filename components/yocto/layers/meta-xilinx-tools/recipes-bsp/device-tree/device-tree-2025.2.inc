@@ -1,0 +1,4 @@
+DT_RELEASE_VERSION = "2025.2"
+
+BRANCH = "xlnx_rel_v2025.2"
+SRCREV = "b662c3d8e75abdf5d544cb33c9fdd03295c7c900"
