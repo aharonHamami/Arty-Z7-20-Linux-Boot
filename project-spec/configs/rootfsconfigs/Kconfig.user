@@ -3,6 +3,10 @@ config gpio-demo
 	 bool "gpio-demo"
 	 help
 	
+config hello-world  
+	 bool "hello-world"
+	 help
+	
 config peekpoke  
 	 bool "peekpoke"
 	 help

@@ -1,14 +1,14 @@
-2026-03-02 21:11:00,873 - [DEBUG] Using xsct from : /opt/pkg/petalinux/sdk/components/xsct/bin/xsct
-2026-03-02 21:11:00,873 - [INFO] Getting Platform info from HW file
-2026-03-02 21:11:00,873 - [DEBUG] Using the soc_family specified by user:zynq
-2026-03-02 21:11:00,886 - [DEBUG] Hardware Configuration:
-2026-03-02 21:11:00,886 - [DEBUG] MACHINE     = "None"
-2026-03-02 21:11:00,886 - [DEBUG] DEVICE_ID   = "7z020"
-2026-03-02 21:11:00,886 - [DEBUG] SOC_FAMILY  = "zynq"
-2026-03-02 21:11:00,886 - [DEBUG] SOC_VARIANT = ""
-2026-03-02 21:11:00,886 - [INFO] Silentconfig project
-2026-03-02 21:11:00,886 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/configs/Kconfig
-2026-03-02 21:11:00,894 - [DEBUG] *
+2026-03-11 14:22:29,847 - [DEBUG] Using xsct from : /opt/pkg/petalinux/sdk/components/xsct/bin/xsct
+2026-03-11 14:22:29,847 - [INFO] Getting Platform info from HW file
+2026-03-11 14:22:29,847 - [DEBUG] Using the soc_family specified by user:zynq
+2026-03-11 14:22:29,854 - [DEBUG] Hardware Configuration:
+2026-03-11 14:22:29,854 - [DEBUG] MACHINE     = "None"
+2026-03-11 14:22:29,854 - [DEBUG] DEVICE_ID   = "7z020"
+2026-03-11 14:22:29,854 - [DEBUG] SOC_FAMILY  = "zynq"
+2026-03-11 14:22:29,854 - [DEBUG] SOC_VARIANT = ""
+2026-03-11 14:22:29,854 - [INFO] Silentconfig project
+2026-03-11 14:22:29,854 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/configs/Kconfig
+2026-03-11 14:22:29,862 - [DEBUG] *
 * PetaLinux System Configuration
 *
 ZYNQ Configuration (SYSTEM_ZYNQ) [Y/?] y
@@ -244,16 +244,22 @@ user layer 0 (USER_LAYER_0) []
 #
 # configuration written to /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config
 #
-2026-03-02 21:11:00,934 - [INFO] Menuconfig rootfs
-2026-03-02 21:11:00,934 - [DEBUG] Running CMD: env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config mconf -s /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs/Kconfig
-2026-03-02 21:12:05,229 - [INFO] Generating configuration files
-2026-03-02 21:12:05,230 - [DEBUG] No multilibs enabled.
-2026-03-02 21:12:05,230 - [DEBUG] No multilibs enabled.
-2026-03-02 21:12:05,230 - [DEBUG] Skip adding layers as no bitbake-layers or builddir found
-2026-03-02 21:12:05,241 - [INFO] Generating plnxtool conf file
-2026-03-02 21:12:05,253 - [DEBUG] python3 /home/aharon/projects/petalinux/artyz7_os_hackster/components/yocto/layers/meta-xilinx/meta-xilinx-core/gen-machine-conf/gen-machine-scripts/rootfsconfigs/rootfs_config.py --update_cfg /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config /home/aharon/projects/petalinux/artyz7_os_hackster/build/conf/plnxtool.conf zynq
-2026-03-02 21:12:05,309 - [DEBUG] 
+2026-03-11 14:22:29,888 - [INFO] Generating kconfig for rootfs
+2026-03-11 14:22:29,888 - [DEBUG] python3 /home/aharon/projects/petalinux/artyz7_os_hackster/components/yocto/layers/meta-xilinx/meta-xilinx-core/gen-machine-conf/gen-machine-scripts/rootfsconfigs/rootfs_config.py --generate_kconfig /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/meta-user/conf/user-rootfsconfig /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs
+2026-03-11 14:22:29,918 - [DEBUG] 
 
 
 
-2026-03-02 21:12:05,311 - [DEBUG] Shutting down bitbake
+2026-03-11 14:22:29,919 - [INFO] Menuconfig rootfs
+2026-03-11 14:22:29,919 - [DEBUG] Running CMD: env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config mconf -s /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs/Kconfig
+2026-03-11 14:23:30,953 - [INFO] Generating configuration files
+2026-03-11 14:23:30,954 - [DEBUG] No multilibs enabled.
+2026-03-11 14:23:30,954 - [DEBUG] No multilibs enabled.
+2026-03-11 14:23:30,954 - [DEBUG] Skip adding layers as no bitbake-layers or builddir found
+2026-03-11 14:23:30,961 - [INFO] Generating plnxtool conf file
+2026-03-11 14:23:30,968 - [DEBUG] python3 /home/aharon/projects/petalinux/artyz7_os_hackster/components/yocto/layers/meta-xilinx/meta-xilinx-core/gen-machine-conf/gen-machine-scripts/rootfsconfigs/rootfs_config.py --update_cfg /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config /home/aharon/projects/petalinux/artyz7_os_hackster/build/conf/plnxtool.conf zynq
+2026-03-11 14:23:31,016 - [DEBUG] 
+
+
+
+2026-03-11 14:23:31,016 - [DEBUG] Shutting down bitbake
