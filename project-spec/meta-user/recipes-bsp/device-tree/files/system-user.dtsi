@@ -1,3 +1,12 @@
 /include/ "system-conf.dtsi"
 / {
 };
+
+&btn_led_gpio {
+	compatible = "generic-uio";
+};
+
+&switches_gpio {
+	compatible = "generic-uio";
+};
+
