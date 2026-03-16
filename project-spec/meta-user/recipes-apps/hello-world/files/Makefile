@@ -1,13 +1,33 @@
 APP = hello-world
 
-# Add any other object files to this list below
-APP_OBJS = hello-world.o
+# --- Compiler ---
+CXX ?= g++
+LDFLAGS ?= 
+LDLIBS ?= 
+
+# --- Directories ---
+SRC_DIR := ./src
+OBJ_DIR := .
+
+# --- Files ---
+SRC_FILES = $(shell find $(SRC_DIR) -type f -name '*.cpp' -o -name '*.c')
+APP_OBJS := $(SRC_FILES:.cpp=.o)
+APP_OBJS := $(APP_OBJS:.c=.o)
+
+# Compile .c files into .o files
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CXX) $(CFLAGS) -c $< -o $@
+
+$(APP): $(APP_OBJS)
+	$(CXX) -o $@ $(APP_OBJS) $(LDFLAGS) $(LDLIBS)
+
+# --- Special Commands ---
+
+.PHONY: all build clean
 
 all: build
 
 build: $(APP)
 
-$(APP): $(APP_OBJS)
-	$(CXX) -o $@ $(APP_OBJS) $(LDFLAGS) $(LDLIBS)
 clean:
-	rm -f $(APP) *.o
+	rm -f $(APP) $(APP_OBJS)

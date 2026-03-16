@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+#include <stdint.h>
+
+#define GPIO_SIZE 0x10000
+
+int main()
+{
+    int fd = open("/dev/uio0", O_RDWR);
+
+    // Making a register map
+    uint32_t *gpio = (uint32_t *)mmap(NULL, GPIO_SIZE,
+                          PROT_READ | PROT_WRITE,
+                          MAP_SHARED, fd, 0);
+
+    printf("Turn n the leds");
+
+    /* Channel 2 = LEDs → output */
+    gpio[3] = 0x0;
+
+    /* Turn on LED0 */
+    gpio[2] = 0x1;
+
+    while (1);
+}

@@ -1,14 +1,14 @@
-2026-03-11 19:53:14,967 - [DEBUG] Using xsct from : /opt/pkg/petalinux/sdk/components/xsct/bin/xsct
-2026-03-11 19:53:14,967 - [INFO] Getting Platform info from HW file
-2026-03-11 19:53:14,967 - [DEBUG] Using the soc_family specified by user:zynq
-2026-03-11 19:53:14,974 - [DEBUG] Hardware Configuration:
-2026-03-11 19:53:14,974 - [DEBUG] MACHINE     = "None"
-2026-03-11 19:53:14,974 - [DEBUG] DEVICE_ID   = "7z020"
-2026-03-11 19:53:14,974 - [DEBUG] SOC_FAMILY  = "zynq"
-2026-03-11 19:53:14,974 - [DEBUG] SOC_VARIANT = ""
-2026-03-11 19:53:14,974 - [INFO] Silentconfig project
-2026-03-11 19:53:14,974 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/configs/Kconfig
-2026-03-11 19:53:14,983 - [DEBUG] *
+2026-03-15 21:26:49,367 - [DEBUG] Using xsct from : /opt/pkg/petalinux/sdk/components/xsct/bin/xsct
+2026-03-15 21:26:49,367 - [INFO] Getting Platform info from HW file
+2026-03-15 21:26:49,367 - [DEBUG] Using the soc_family specified by user:zynq
+2026-03-15 21:26:49,379 - [DEBUG] Hardware Configuration:
+2026-03-15 21:26:49,379 - [DEBUG] MACHINE     = "None"
+2026-03-15 21:26:49,379 - [DEBUG] DEVICE_ID   = "7z020"
+2026-03-15 21:26:49,379 - [DEBUG] SOC_FAMILY  = "zynq"
+2026-03-15 21:26:49,379 - [DEBUG] SOC_VARIANT = ""
+2026-03-15 21:26:49,379 - [INFO] Silentconfig project
+2026-03-15 21:26:49,379 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/configs/Kconfig
+2026-03-15 21:26:49,387 - [DEBUG] *
 * PetaLinux System Configuration
 *
 ZYNQ Configuration (SYSTEM_ZYNQ) [Y/?] y
@@ -117,8 +117,8 @@ Extra dts/dtsi files (SUBSYSTEM_EXTRA_DT_FILES) []
 *
 generate boot args automatically (SUBSYSTEM_BOOTARGS_AUTO) [Y/n/?] 
 enable kernel earlyprintk (SUBSYSTEM_BOOTARGS_EARLYPRINTK) [Y/n/?] 
-Auto generated bootargs (NO EDIT!) (SUBSYSTEM_BOOTARGS_GENERATED) [console=ttyPS0,115200 earlycon root=/dev/mmcblk0p2 ro rootwait] 
-Add extra boot args (SUBSYSTEM_EXTRA_BOOTARGS) [] 
+Auto generated bootargs (NO EDIT!) (SUBSYSTEM_BOOTARGS_GENERATED) [console=ttyPS0,115200 earlycon root=/dev/mmcblk0p2 ro rootwait uio_pdrv_genirq.of_id=generic-uio] 
+Add extra boot args (SUBSYSTEM_EXTRA_BOOTARGS) [uio_pdrv_genirq.of_id=generic-uio] 
 Devicetree compiler flags (SUBSYSTEM_DEVICETREE_COMPILER_FLAGS) [-@] 
 Devicetree overlay (SUBSYSTEM_DTB_OVERLAY) [N/y/?] 
 Remove PL from devicetree (SUBSYSTEM_REMOVE_PL_DTB) [N/y/?] 
@@ -244,9 +244,9 @@ user layer 0 (USER_LAYER_0) []
 #
 # configuration written to /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config
 #
-2026-03-11 19:53:15,030 - [INFO] Silentconfig rootfs
-2026-03-11 19:53:15,030 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs/Kconfig
-2026-03-11 19:53:15,044 - [DEBUG] *
+2026-03-15 21:26:49,414 - [INFO] Silentconfig rootfs
+2026-03-15 21:26:49,414 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs/Kconfig
+2026-03-15 21:26:49,430 - [DEBUG] *
 * Configuration
 *
 *
@@ -3527,7 +3527,7 @@ Add Users to Sudo users (ADD_USERS_TO_SUDOERS) [petalinux]
 #
 # configuration written to /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config
 #
-2026-03-11 19:53:15,049 - [INFO] Generating configuration files
-2026-03-11 19:53:15,049 - [DEBUG] No multilibs enabled.
-2026-03-11 19:53:15,049 - [DEBUG] No multilibs enabled.
-2026-03-11 19:53:15,057 - [DEBUG] Shutting down bitbake
+2026-03-15 21:26:49,438 - [INFO] Generating configuration files
+2026-03-15 21:26:49,439 - [DEBUG] No multilibs enabled.
+2026-03-15 21:26:49,439 - [DEBUG] No multilibs enabled.
+2026-03-15 21:26:49,449 - [DEBUG] Shutting down bitbake
