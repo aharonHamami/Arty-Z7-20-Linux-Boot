@@ -1,36 +1,16 @@
-2026-03-16 17:03:03,595 - [DEBUG] Using xsct from : /opt/pkg/petalinux/sdk/components/xsct/bin/xsct
-2026-03-16 17:03:03,595 - [INFO] Getting Platform info from HW file
-2026-03-16 17:03:03,595 - [DEBUG] Using the soc_family specified by user:zynq
-2026-03-16 17:03:03,610 - [DEBUG] Hardware Configuration:
-2026-03-16 17:03:03,610 - [DEBUG] MACHINE     = "None"
-2026-03-16 17:03:03,610 - [DEBUG] DEVICE_ID   = "7z020"
-2026-03-16 17:03:03,610 - [DEBUG] SOC_FAMILY  = "zynq"
-2026-03-16 17:03:03,610 - [DEBUG] SOC_VARIANT = ""
-2026-03-16 17:03:03,610 - [INFO] Menuconfig project
-2026-03-16 17:03:03,610 - [DEBUG] Running CMD: env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config mconf -s /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/configs/Kconfig
-2026-03-16 17:05:31,380 - [DEBUG] xsct -sdx -nodisp /home/aharon/projects/petalinux/artyz7_os_hackster/components/yocto/layers/meta-xilinx/meta-xilinx-core/gen-machine-conf/gen-machine-scripts/petalinux_hsm.tcl get_flash_width_parts /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config /home/aharon/projects/petalinux/artyz7_os_hackster/components/yocto/layers/meta-xilinx/meta-xilinx-core/gen-machine-conf/gen-machine-scripts/data/ipinfo.yaml /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/hw-description/system.xsa /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/flash_parts.txt
-2026-03-16 17:05:38,033 - [DEBUG] 
-
-****** Software Commandline Tool (XSCT) v2025.2.0
-  **** SW Build 6298600 on Thu Nov 13 00:55:04 MST 2025
-    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
-
-
-Warning: XSCT is deprecated and will be removed in future releases.
-We recommend using the new Python command-line tool for project management and debugging:
-- Run "vitis -i" for interactive mode.
-- Run "vitis -s <script>" for script mode.
-WARNING: sdtgen package cannot be loaded. System Device tree commands will not 
- be available
-INFO: [Hsi 55-2053] elapsed time for repository (/opt/pkg/petalinux/sdk/components/xsct/data/embeddedsw) loading 0 seconds
-
-WARNING: Failed in finding /opt/pkg/petalinux/sdk/components/xsct/data/system-device-tree-xlnx/device_tree/data/device_tree.tcl path.
-
-
-2026-03-16 17:05:38,035 - [INFO] Silentconfig rootfs
-2026-03-16 17:05:38,035 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs/Kconfig
-2026-03-16 17:05:38,050 - [DEBUG] *
+2026-03-17 12:44:13,650 - [DEBUG] Using xsct from : /opt/pkg/petalinux/sdk/components/xsct/bin/xsct
+2026-03-17 12:44:13,650 - [INFO] Getting Platform info from HW file
+2026-03-17 12:44:13,650 - [DEBUG] Using the soc_family specified by user:zynq
+2026-03-17 12:44:13,667 - [DEBUG] Hardware Configuration:
+2026-03-17 12:44:13,667 - [DEBUG] MACHINE     = "None"
+2026-03-17 12:44:13,667 - [DEBUG] DEVICE_ID   = "7z020"
+2026-03-17 12:44:13,667 - [DEBUG] SOC_FAMILY  = "zynq"
+2026-03-17 12:44:13,667 - [DEBUG] SOC_VARIANT = ""
+2026-03-17 12:44:13,667 - [INFO] Menuconfig project
+2026-03-17 12:44:13,667 - [DEBUG] Running CMD: env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config mconf -s /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/configs/Kconfig
+2026-03-17 12:44:47,910 - [INFO] Silentconfig rootfs
+2026-03-17 12:44:47,910 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs/Kconfig
+2026-03-17 12:44:47,928 - [DEBUG] *
 * Configuration
 *
 *
@@ -3311,14 +3291,7 @@ Add Users to Sudo users (ADD_USERS_TO_SUDOERS) [petalinux]
 #
 # configuration written to /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config
 #
-2026-03-16 17:05:38,060 - [INFO] Generating configuration files
-2026-03-16 17:05:38,060 - [DEBUG] No multilibs enabled.
-2026-03-16 17:05:38,061 - [DEBUG] No multilibs enabled.
-2026-03-16 17:05:38,068 - [INFO] Generating machine conf file
-2026-03-16 17:05:38,078 - [INFO] Generating plnxtool conf file
-2026-03-16 17:05:38,094 - [DEBUG] python3 /home/aharon/projects/petalinux/artyz7_os_hackster/components/yocto/layers/meta-xilinx/meta-xilinx-core/gen-machine-conf/gen-machine-scripts/rootfsconfigs/rootfs_config.py --update_cfg /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config /home/aharon/projects/petalinux/artyz7_os_hackster/build/conf/plnxtool.conf zynq
-2026-03-16 17:05:38,173 - [DEBUG] 
-
-
-
-2026-03-16 17:05:38,175 - [DEBUG] Shutting down bitbake
+2026-03-17 12:44:47,938 - [INFO] Generating configuration files
+2026-03-17 12:44:47,939 - [DEBUG] No multilibs enabled.
+2026-03-17 12:44:47,939 - [DEBUG] No multilibs enabled.
+2026-03-17 12:44:47,956 - [DEBUG] Shutting down bitbake

@@ -3751,6 +3751,7 @@ CONFIG_Init-manager-sysvinit=y
 # CONFIG_gpio-demo is not set
 CONFIG_hello-world=y
 # CONFIG_peekpoke is not set
+CONFIG_translator=y
 
 #
 # PetaLinux RootFS Settings
