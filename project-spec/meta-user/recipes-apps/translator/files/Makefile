@@ -11,11 +11,11 @@ OBJ_DIR := ./obj
 
 # --- Files ---
 SRC_FILES = $(shell find $(SRC_DIR) -type f -name '*.cpp' -o -name '*.c')
-APP_OBJS := $(SRC_FILES:.cpp=.o)
-APP_OBJS := $(APP_OBJS:.c=.o)
+APP_OBJS = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
 
 # Compile .c files into .o files
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	mkdir -p $(@D) # Create the object file's directory if it doesn't exist
 	$(CXX) $(CFLAGS) -c $< -o $@
 	@echo
 
@@ -33,3 +33,4 @@ build: $(APP)
 
 clean:
 	rm -f $(APP) $(APP_OBJS)
+	rm -rf ./$(OBJ_DIR)
