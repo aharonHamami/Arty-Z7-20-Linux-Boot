@@ -67,10 +67,12 @@ int tcp_server_accept(TcpServer* server) {
 }
 
 ssize_t tcp_server_send(int client_fd, char* buffer, size_t buffer_length) {
-    ssize_t n_sent = send(client_fd, buffer, buffer_length, 0);
+    // MSG_NOSIGNAL - prevent a SIGPIPE signal, only return an EPIPE error
+    ssize_t n_sent = send(client_fd, buffer, buffer_length, MSG_NOSIGNAL);
 
     if(n_sent < 0) {
         perror("send");
+        return -1;
     }
 
     return n_sent;
