@@ -7,7 +7,7 @@
 
 #define BAUD_RATE B9600
 
-static int serial_configure(serial_fd fd)
+static int serial_configure(int fd)
 {
     int rc;             // Error return code
     struct termios tty_conf; // device
@@ -38,7 +38,6 @@ static int serial_configure(serial_fd fd)
     tty_conf.c_iflag &= ~(IXON | IXOFF | IXANY);         // Turn OFF software based flow control (XON/XOFF)
     tty_conf.c_oflag &= ~OPOST;
 
-    printf("Timing is SET");
     tty_conf.c_cc[VMIN] = 1;        // return from 'read' only after getting at least 1 byte
     tty_conf.c_cc[VTIME] = 0;      // return from 'read' after VTIME*0.1 sec passed without input
 
@@ -46,7 +45,7 @@ static int serial_configure(serial_fd fd)
     return tcsetattr(fd, TCSANOW, &tty_conf); // (TCSANOW = apply now)
 }
 
-serial_fd serial_open(const char *device_path)
+int serial_open(const char *device_path)
 {
     // O_RDWR - Read and Write
     // O_NOCTTY - prevents the port from becoming the controlling terminal
@@ -63,14 +62,14 @@ serial_fd serial_open(const char *device_path)
     return fd;
 }
 
-int serial_close(serial_fd fd) {
+int serial_close(int fd) {
     return close(fd);
 }
 
-ssize_t serial_write(serial_fd fd, void* buffer, int buffer_len) {
+ssize_t serial_write(int fd, void* buffer, int buffer_len) {
     return write(fd, buffer, buffer_len);
 }
 
-ssize_t serial_read(serial_fd fd, void* buffer, int buffer_len) {
+ssize_t serial_read(int fd, void* buffer, int buffer_len) {
     return read(fd, buffer, buffer_len);
 }

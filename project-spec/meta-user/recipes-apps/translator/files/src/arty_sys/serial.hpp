@@ -2,14 +2,12 @@
 
 #include <stdio.h>
 
-typedef int serial_fd; // file description
-
 /**
  * Open a new serial connection
  * 
  * @return a file descriptor to the serial connection. -1 if there is an error.
  */
-serial_fd serial_open(const char* device_path);
+int serial_open(const char* device_path);
 
 /**
  * close a serial connection
@@ -17,7 +15,7 @@ serial_fd serial_open(const char* device_path);
  * @param fd file descriptor of the serial connection.
  * @return status code (0 if ok).
  */
-int serial_close(serial_fd fd);
+int serial_close(int fd);
 
 /**
  * Write to a serial device
@@ -27,7 +25,7 @@ int serial_close(serial_fd fd);
  * @param buffer_len buffer length.
  * @return number of bytes written, or -1 if fails.
  */
-ssize_t serial_write(serial_fd fd, void* buffer, int buffer_len);
+ssize_t serial_write(int fd, void* buffer, int buffer_len);
 
 /**
  * Read from a serial device
@@ -37,4 +35,4 @@ ssize_t serial_write(serial_fd fd, void* buffer, int buffer_len);
  * @param buffer_len bytes count to read.
  * @return number of bytes read, -1 for errors or 0 for EOF.
  */
-ssize_t serial_read(serial_fd fd, void* buffer, int buffer_len);
+ssize_t serial_read(int fd, void* buffer, int buffer_len);
