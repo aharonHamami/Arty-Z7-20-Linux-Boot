@@ -9,7 +9,7 @@ void run_serial_worker(int input_fd, char* buffer, size_t buffer_size) = delete;
 void run_net_worker() = delete;
 
 int run_bridge(int serial_fd, TcpServer* net_server) {
-    // TODO: add a ring buffer
+    // TODO: add a ring buffer for threading safety
 
     // TODO: right now it handles only one client. increase it to multiple clients later
 	printf("Listening for connection on port %d...\n", net_server->port);
@@ -36,11 +36,13 @@ int run_bridge(int serial_fd, TcpServer* net_server) {
 
 		printf("sending> %s\n", buffer);
 		int n_bytes_sent = tcp_server_send(client_fd, buffer, n_bytes_read);
-        if(errno == EPIPE) {
+        if(n_bytes_sent < 0 && errno == EPIPE) {
+            close(client_fd);
             printf("[[ Client disconnected ]]\n");
             printf("Waiting for another connection...\n");
             fflush(stdout);
             client_fd = tcp_server_accept(net_server);
+            printf("Connection established\n");
         }
 	}
 

@@ -24,7 +24,7 @@ typedef struct
 int tcp_server_init(TcpServer* server, int port = 3000);
 
 /**
- * Close a TCP connection
+ * Close a server TCP socket
  * 
  * @param server pointer to the server instance
  * @return status code (0 if ok).
