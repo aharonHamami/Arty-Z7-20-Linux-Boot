@@ -25,11 +25,16 @@ $(APP): $(APP_OBJS)
 
 # --- Special Commands ---
 
-.PHONY: all build clean
+.PHONY: all build clean debug
 
 all: build
 
 build: $(APP)
+
+debug: CFLAGS += -g -O0
+debug: build
+	#$(GDB) $(APP)
+	#petalinux-util gdb $(APP)
 
 clean:
 	rm -f $(APP) $(APP_OBJS)

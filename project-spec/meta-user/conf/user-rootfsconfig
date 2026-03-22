@@ -5,3 +5,5 @@ CONFIG_gpio-demo
 CONFIG_peekpoke
 CONFIG_hello-world
 CONFIG_translator
+CONFIG_translator-dev
+CONFIG_translator-dbg

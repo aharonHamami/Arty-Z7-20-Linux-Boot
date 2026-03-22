@@ -2215,10 +2215,10 @@ CONFIG_linux-xlnx-udev-rules=y
 #
 # gdb 
 #
-# CONFIG_gdb is not set
+CONFIG_gdb=y
 # CONFIG_gdb-dbg is not set
 # CONFIG_gdb-dev is not set
-# CONFIG_gdbserver is not set
+CONFIG_gdbserver=y
 
 #
 # glib-2.0 
@@ -2926,7 +2926,7 @@ CONFIG_packagegroup-core-buildessential=y
 #
 # tcf-agent 
 #
-CONFIG_tcf-agent=y
+# CONFIG_tcf-agent is not set
 # CONFIG_tcf-agent-dbg is not set
 # CONFIG_tcf-agent-dev is not set
 
@@ -3752,6 +3752,8 @@ CONFIG_Init-manager-sysvinit=y
 CONFIG_hello-world=y
 # CONFIG_peekpoke is not set
 CONFIG_translator=y
+CONFIG_translator-dbg=y
+# CONFIG_translator-dev is not set
 
 #
 # PetaLinux RootFS Settings

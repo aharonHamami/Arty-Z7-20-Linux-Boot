@@ -15,4 +15,12 @@ config translator
 	 bool "translator"
 	 help
 	
+config translator-dbg  
+	 bool "translator-dbg"
+	 help
+	
+config translator-dev  
+	 bool "translator-dev"
+	 help
+	
 endmenu

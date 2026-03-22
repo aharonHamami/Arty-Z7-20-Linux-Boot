@@ -1,14 +1,14 @@
-2026-03-17 17:44:05,826 - [DEBUG] Using xsct from : /opt/pkg/petalinux/sdk/components/xsct/bin/xsct
-2026-03-17 17:44:05,827 - [INFO] Getting Platform info from HW file
-2026-03-17 17:44:05,827 - [DEBUG] Using the soc_family specified by user:zynq
-2026-03-17 17:44:05,840 - [DEBUG] Hardware Configuration:
-2026-03-17 17:44:05,840 - [DEBUG] MACHINE     = "None"
-2026-03-17 17:44:05,840 - [DEBUG] DEVICE_ID   = "7z020"
-2026-03-17 17:44:05,840 - [DEBUG] SOC_FAMILY  = "zynq"
-2026-03-17 17:44:05,840 - [DEBUG] SOC_VARIANT = ""
-2026-03-17 17:44:05,840 - [INFO] Silentconfig project
-2026-03-17 17:44:05,840 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/configs/Kconfig
-2026-03-17 17:44:05,869 - [DEBUG] *
+2026-03-22 10:42:52,884 - [DEBUG] Using xsct from : /opt/pkg/petalinux/sdk/components/xsct/bin/xsct
+2026-03-22 10:42:52,884 - [INFO] Getting Platform info from HW file
+2026-03-22 10:42:52,884 - [DEBUG] Using the soc_family specified by user:zynq
+2026-03-22 10:42:52,898 - [DEBUG] Hardware Configuration:
+2026-03-22 10:42:52,898 - [DEBUG] MACHINE     = "None"
+2026-03-22 10:42:52,898 - [DEBUG] DEVICE_ID   = "7z020"
+2026-03-22 10:42:52,898 - [DEBUG] SOC_FAMILY  = "zynq"
+2026-03-22 10:42:52,898 - [DEBUG] SOC_VARIANT = ""
+2026-03-22 10:42:52,898 - [INFO] Silentconfig project
+2026-03-22 10:42:52,898 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/configs/Kconfig
+2026-03-22 10:42:52,907 - [DEBUG] *
 * PetaLinux System Configuration
 *
 ZYNQ Configuration (SYSTEM_ZYNQ) [Y/?] y
@@ -247,9 +247,9 @@ user layer 0 (USER_LAYER_0) []
 #
 # configuration written to /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config
 #
-2026-03-17 17:44:05,919 - [INFO] Silentconfig rootfs
-2026-03-17 17:44:05,919 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs/Kconfig
-2026-03-17 17:44:05,936 - [DEBUG] *
+2026-03-22 10:42:52,979 - [INFO] Silentconfig rootfs
+2026-03-22 10:42:52,979 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs/Kconfig
+2026-03-22 10:42:52,995 - [DEBUG] *
 * Configuration
 *
 *
@@ -2171,10 +2171,10 @@ gcr-dbg (gcr-dbg) [N/y/?]
 *
 * gdb 
 *
-gdb (gdb) [N/y/?] 
+gdb (gdb) [Y/?] y
 gdb-dbg (gdb-dbg) [N/y/?] 
 gdb-dev (gdb-dev) [N/y/?] 
-gdbserver (gdbserver) [N/y/?] 
+gdbserver (gdbserver) [Y/n/?] 
 *
 * glib-2.0 
 *
@@ -2802,7 +2802,7 @@ tbb-dbg (tbb-dbg) [N/y/?]
 *
 * tcf-agent 
 *
-tcf-agent (tcf-agent) [Y/n/?] 
+tcf-agent (tcf-agent) [N/y/?] 
 tcf-agent-dbg (tcf-agent-dbg) [N/y/?] 
 tcf-agent-dev (tcf-agent-dev) [N/y/?] 
 *
@@ -3521,6 +3521,8 @@ gpio-demo (gpio-demo) [N/y/?]
 hello-world (hello-world) [Y/n/?] 
 peekpoke (peekpoke) [N/y/?] 
 translator (translator) [Y/n/?] 
+translator-dbg (translator-dbg) [Y/n/?] 
+translator-dev (translator-dev) [N/y/?] 
 *
 * PetaLinux RootFS Settings
 *
@@ -3531,7 +3533,7 @@ Add Users to Sudo users (ADD_USERS_TO_SUDOERS) [petalinux]
 #
 # configuration written to /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config
 #
-2026-03-17 17:44:05,945 - [INFO] Generating configuration files
-2026-03-17 17:44:05,946 - [DEBUG] No multilibs enabled.
-2026-03-17 17:44:05,946 - [DEBUG] No multilibs enabled.
-2026-03-17 17:44:05,962 - [DEBUG] Shutting down bitbake
+2026-03-22 10:42:53,005 - [INFO] Generating configuration files
+2026-03-22 10:42:53,006 - [DEBUG] No multilibs enabled.
+2026-03-22 10:42:53,006 - [DEBUG] No multilibs enabled.
+2026-03-22 10:42:53,023 - [DEBUG] Shutting down bitbake
