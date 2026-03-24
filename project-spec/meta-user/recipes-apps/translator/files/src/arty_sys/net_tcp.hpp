@@ -1,16 +1,21 @@
 #pragma once
 
+#include "net_tcp_clients.hpp"
+
 #include <iostream>
 #include <unistd.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 
+#define TCP_MAX_CLIENTS 4
+
 typedef struct
 {
     int fd;
     struct sockaddr_in address;
     int port;
+    TcpClients clients;
 } TcpServer;
 
 /**

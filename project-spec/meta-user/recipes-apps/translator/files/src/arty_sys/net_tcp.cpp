@@ -1,4 +1,5 @@
 #include "net_tcp.hpp"
+#include "net_tcp_clients.hpp"
 
 #include <iostream>
 #include <unistd.h>
@@ -28,6 +29,8 @@ int tcp_server_init(TcpServer* server, int port) {
     server->address.sin_port = htons(port);        // Server port
     server->port = port;
 
+    tcp_clients_init(&server->clients);
+
     if(bind(server->fd, (struct sockaddr*)&server->address, sizeof(server->address)) < 0) {
         perror("bind");
         return -1;
@@ -41,7 +44,7 @@ int tcp_server_close(TcpServer* server) {
 }
 
 int tcp_server_listen(TcpServer* server) {
-    if(listen(server->fd, 3) < 0) { // allow max 3 pending connection requests queued
+    if(listen(server->fd, TCP_MAX_CLIENTS) < 0) { // allow max 3 pending connection requests queued
         perror("listen");
         return -1;
     }
@@ -50,19 +53,29 @@ int tcp_server_listen(TcpServer* server) {
 }
 
 int tcp_server_accept(TcpServer* server) {
+    if(!tcp_clients_can_add(&server->clients)) {
+        fprintf(stderr, "tcp_server_accept: too many clients have joined. closing the last client\n");
+        return -1;
+    }
+
     unsigned int address_size = sizeof(server->address);
 
     int client_socket_fd = accept(
         server->fd,
         (struct sockaddr*)&server->address,
         &address_size
-    ); 
+    );
 
     if(client_socket_fd < 0) {
         perror("accept");
         return -1;
     }
 
+    if(tcp_clients_add(&server->clients, client_socket_fd) < 0) {
+        fprintf(stderr, "tcp_clients_add: a client could not be added\n");
+        return -1;
+    }
+    
     return client_socket_fd;
 }
 
@@ -76,4 +89,8 @@ ssize_t tcp_server_send(int client_fd, char* buffer, size_t buffer_length) {
     }
 
     return n_sent;
+}
+
+int tcp_server_remove_client(TcpServer* server, int client_fd) {
+    return tcp_clients_remove(&server->clients, client_fd);
 }
