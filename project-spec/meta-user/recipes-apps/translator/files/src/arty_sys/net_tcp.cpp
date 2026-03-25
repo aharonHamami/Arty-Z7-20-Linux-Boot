@@ -53,11 +53,6 @@ int tcp_server_listen(TcpServer* server) {
 }
 
 int tcp_server_accept(TcpServer* server) {
-    if(!tcp_clients_can_add(&server->clients)) {
-        fprintf(stderr, "tcp_server_accept: too many clients have joined. closing the last client\n");
-        return -1;
-    }
-
     unsigned int address_size = sizeof(server->address);
 
     int client_socket_fd = accept(
@@ -65,6 +60,12 @@ int tcp_server_accept(TcpServer* server) {
         (struct sockaddr*)&server->address,
         &address_size
     );
+
+    if(!tcp_clients_can_add(&server->clients)) {
+        fprintf(stderr, "tcp_server_accept: too many clients have joined. closing the last client\n");
+        close(client_socket_fd);
+        return -1;
+    }
 
     if(client_socket_fd < 0) {
         perror("accept");
@@ -91,6 +92,7 @@ ssize_t tcp_server_send(int client_fd, char* buffer, size_t buffer_length) {
     return n_sent;
 }
 
-int tcp_server_remove_client(TcpServer* server, int client_fd) {
+int tcp_server_close_client(TcpServer* server, int client_fd) {
+    close(client_fd);
     return tcp_clients_remove(&server->clients, client_fd);
 }
