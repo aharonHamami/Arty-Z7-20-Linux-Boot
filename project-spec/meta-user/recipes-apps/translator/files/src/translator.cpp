@@ -4,10 +4,11 @@
 
 #include "arty_sys/serial.hpp"
 #include "arty_sys/net_tcp.hpp"
+#include "btn_led_controller.h"
 #include "bridge.hpp"
 
-#define SERIAL_PATH "/dev/ttyPS0"
-
+#define SERIAL_F_PATH "/dev/ttyPS0"
+#define BTN_LED_GPIO_F_PATH "/dev/uio0"
 #define TCP_PORT 3000
 
 void show_help(const char* prog_name) {
@@ -19,19 +20,22 @@ void show_help(const char* prog_name) {
 
 int run_translator() {
 	// setup serial connection
-	int serial_fd = serial_open(SERIAL_PATH);
+	int serial_fd = serial_open(SERIAL_F_PATH);
 	if(serial_fd < 0) {
 		perror("serial_open");
 		return 1;
 	}
-	printf("Opened a serial connection at %s\n", SERIAL_PATH);
+	printf("Opened a serial connection at %s\n", SERIAL_F_PATH);
 
 	// setup ethernet connection
 	TcpServer server;
 	tcp_server_init(&server, TCP_PORT);
 	tcp_server_listen(&server);
+
+	// setup gpio for 4 buttons and leds
+	BtnLedController btn_led_io(BTN_LED_GPIO_F_PATH);
 	
-	int return_code = run_bridge(serial_fd, &server);
+	int return_code = run_bridge(serial_fd, &server, &btn_led_io);
 
 	// clean resources
 	serial_close(serial_fd);

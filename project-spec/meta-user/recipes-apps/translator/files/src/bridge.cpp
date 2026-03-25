@@ -3,6 +3,7 @@
 
 #include "arty_sys/serial.hpp"
 #include "arty_sys/net_tcp.hpp"
+#include "btn_led_controller.h"
 
 static int handle_serial_input(int input_fd, char* buffer, size_t buffer_size) {
     int n_bytes_read = serial_read(input_fd, buffer, buffer_size);
@@ -31,21 +32,21 @@ static void handle_ethernet_output(TcpServer* server, char* buffer, size_t buffe
 
 		int n_sent = tcp_server_send(client_fd, buffer, buffer_size);
 		if(n_sent < 0 && errno == EPIPE) {
-			close(client_fd);
+			tcp_server_close_client(server, client_fd);
 			printf("[[ Client %d disconnected ]]\n", client_fd);
 		}
 	}
 }
 
-int run_bridge(int serial_fd, TcpServer* net_server) {
-    // TODO: add a ring buffer for threading safety
-
-	printf("Listening for connection on port %d...\n", net_server->port);
+int run_bridge(int serial_fd, TcpServer* net_server, BtnLedController* btn_led_io) {
+    printf("Listening for connection on port %d...\n", net_server->port);
 	printf("Waiting for U-ART input...\n");
 
-	char buffer[255];	// serial -> ethernet buffer
-
+	btn_led_io->reset();
+	
 	int rc; // general return code
+	char buffer[255];	// serial -> ethernet buffer
+	int n_clients_connected = 0;
 	while(1) {
 		// wait for clients accept requests OR wait for U-ART input
 		fd_set readfs;
@@ -78,6 +79,13 @@ int run_bridge(int serial_fd, TcpServer* net_server) {
 			if(rc < 0) return -1;
 			
 			handle_ethernet_output(net_server, buffer, n_read);
+		}
+
+		// indicate when clients connected/disconnected
+		if(n_clients_connected != net_server->clients.n_connected) {
+			n_clients_connected = net_server->clients.n_connected;
+			printf("now %d are connected\n", (uint32_t)n_clients_connected);
+			btn_led_io->setAllLeds(1 << (n_clients_connected - 1));
 		}
 	}
 
