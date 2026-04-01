@@ -32,8 +32,9 @@ int run_translator() {
 	tcp_server_init(&server, TCP_PORT);
 	tcp_server_listen(&server);
 
-	// setup gpio for 4 buttons and leds
-	BtnLedController btn_led_io(BTN_LED_GPIO_F_PATH);
+	// Setup gpio for 4 buttons and leds
+	BtnLedController btn_led_io;
+	btn_led_io.reset();
 	
 	int return_code = run_bridge(serial_fd, &server, &btn_led_io);
 

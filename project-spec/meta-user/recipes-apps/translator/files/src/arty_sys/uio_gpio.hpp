@@ -28,8 +28,13 @@ class UioGpio
     UioGpio& operator=(const UioGpio&) = delete;
 
     public:
-    UioGpio(const char* device_path, size_t map_size = 0x10000);
+    UioGpio(const char* device_path, const char* map_size_path);
     ~UioGpio();
+
+    /**
+     * Get gpio file descriptor
+     */
+    int getFD();
 
     /**
      * Define channel direction for all 32 pins at once.
@@ -81,17 +86,23 @@ class UioGpio
     int readIoPin(int channel, int pin_no);
 
     /**
-     * Enable AXI GPIO interrupts.
+     * Enable AXI GPIO interrupts on the specified channel.
+     * 
+     * This method can be called only once after creating a new instance.
      */
-    void enableInterrupts();
+    void enableInterrupts(int channel);
+
+    /**
+     * Block until a hardware interrupt occurs.
+     * 
+     * @note After the interrupt is dispatched and the user handles the interrupt the 'resetInterrupt' method must be called again to wait for the interrupt again 
+     * 
+     * @return interrupt count
+     */
+    int32_t waitForInterrupt();
 
     /**
      * Clear the interrupt status register.
      */
-    void clearInterrupt();
-
-    /**
-     * Block until a hardware interrupt occurs.
-     */
-    void waitForInterrupt();
+    void resetInterrupt();
 };
