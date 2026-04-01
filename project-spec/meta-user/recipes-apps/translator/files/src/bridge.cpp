@@ -38,24 +38,31 @@ static void handle_ethernet_output(TcpServer* server, char* buffer, size_t buffe
 	}
 }
 
-int run_bridge(int serial_fd, TcpServer* net_server, BtnLedController* btn_led_io) {
+static void handle_button_press(BtnLedController* btn_led_io) {
+	int pressed_btns_mask = btn_led_io->waitForButtonPress();
+	printf("a button was pressed, got the value: %d\n", pressed_btns_mask);
+}
+
+int run_bridge_event_loop(int serial_fd, TcpServer* net_server, BtnLedController* btn_led_io) {
     printf("Listening for connection on port %d...\n", net_server->port);
 	printf("Waiting for U-ART input...\n");
 
-	btn_led_io->reset();
-	
-	int rc; // general return code
-	char buffer[255];	// serial -> ethernet buffer
-	int n_clients_connected = 0;
+	char buffer[255];							// serial -> ethernet buffer
+	int n_clients_connected = 0;				// save number of connected clients at each iteration
+	int btn_led_fd = btn_led_io->getFD();
+
 	while(1) {
 		// wait for clients accept requests OR wait for U-ART input
+		// TODO: fd_set and 'select' method is mandatory. use poll or epoll instead
 		fd_set readfs;
 		FD_ZERO(&readfs);
 		
 		FD_SET(serial_fd, &readfs);
 		FD_SET(net_server->fd, &readfs);
+		FD_SET(btn_led_fd, &readfs);
 
 		int max_fd = serial_fd > net_server->fd ? serial_fd : net_server->fd;
+		max_fd = max_fd > btn_led_fd ? max_fd : btn_led_fd;
 
 		if(select(max_fd + 1, &readfs, NULL, NULL, NULL) < 0) {
 			perror("select");
@@ -76,9 +83,13 @@ int run_bridge(int serial_fd, TcpServer* net_server, BtnLedController* btn_led_i
 		if(FD_ISSET(serial_fd, &readfs)) { 
 			// Serial data arrived
 			int n_read = handle_serial_input(serial_fd, buffer, sizeof(buffer) - 1);
-			if(rc < 0) return -1;
+			if(n_read < 0) return -1;
 			
 			handle_ethernet_output(net_server, buffer, n_read);
+		}
+
+		if(FD_ISSET(btn_led_fd, &readfs)) {
+			handle_button_press(btn_led_io);
 		}
 
 		// indicate when clients connected/disconnected

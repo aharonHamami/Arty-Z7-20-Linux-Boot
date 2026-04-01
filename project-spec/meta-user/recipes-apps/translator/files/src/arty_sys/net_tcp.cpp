@@ -61,6 +61,8 @@ int tcp_server_accept(TcpServer* server) {
         &address_size
     );
 
+    // Error handling
+
     if(!tcp_clients_can_add(&server->clients)) {
         fprintf(stderr, "tcp_server_accept: too many clients have joined. closing the last client\n");
         close(client_socket_fd);
@@ -83,6 +85,8 @@ int tcp_server_accept(TcpServer* server) {
 ssize_t tcp_server_send(int client_fd, char* buffer, size_t buffer_length) {
     // MSG_NOSIGNAL - prevent a SIGPIPE signal, only return an EPIPE error
     ssize_t n_sent = send(client_fd, buffer, buffer_length, MSG_NOSIGNAL);
+
+    // Error handling
 
     if(n_sent < 0) {
         perror("send");

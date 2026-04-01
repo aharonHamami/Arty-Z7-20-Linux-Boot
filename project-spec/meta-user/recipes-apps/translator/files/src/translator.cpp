@@ -8,7 +8,6 @@
 #include "bridge.hpp"
 
 #define SERIAL_F_PATH "/dev/ttyPS0"
-#define BTN_LED_GPIO_F_PATH "/dev/uio0"
 #define TCP_PORT 3000
 
 void show_help(const char* prog_name) {
@@ -19,7 +18,7 @@ void show_help(const char* prog_name) {
 }
 
 int run_translator() {
-	// setup serial connection
+	// Setup serial connection
 	int serial_fd = serial_open(SERIAL_F_PATH);
 	if(serial_fd < 0) {
 		perror("serial_open");
@@ -27,7 +26,7 @@ int run_translator() {
 	}
 	printf("Opened a serial connection at %s\n", SERIAL_F_PATH);
 
-	// setup ethernet connection
+	// Setup TCP server
 	TcpServer server;
 	tcp_server_init(&server, TCP_PORT);
 	tcp_server_listen(&server);
@@ -36,7 +35,7 @@ int run_translator() {
 	BtnLedController btn_led_io;
 	btn_led_io.reset();
 	
-	int return_code = run_bridge(serial_fd, &server, &btn_led_io);
+	int return_code = run_bridge_event_loop(serial_fd, &server, &btn_led_io);
 
 	// clean resources
 	serial_close(serial_fd);
