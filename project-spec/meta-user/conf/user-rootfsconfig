@@ -7,3 +7,4 @@ CONFIG_hello-world
 CONFIG_translator
 CONFIG_translator-dev
 CONFIG_translator-dbg
+CONFIG_std1553-ste

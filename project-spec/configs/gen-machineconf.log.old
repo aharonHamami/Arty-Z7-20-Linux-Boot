@@ -1,14 +1,14 @@
-2026-03-22 10:42:52,884 - [DEBUG] Using xsct from : /opt/pkg/petalinux/sdk/components/xsct/bin/xsct
-2026-03-22 10:42:52,884 - [INFO] Getting Platform info from HW file
-2026-03-22 10:42:52,884 - [DEBUG] Using the soc_family specified by user:zynq
-2026-03-22 10:42:52,898 - [DEBUG] Hardware Configuration:
-2026-03-22 10:42:52,898 - [DEBUG] MACHINE     = "None"
-2026-03-22 10:42:52,898 - [DEBUG] DEVICE_ID   = "7z020"
-2026-03-22 10:42:52,898 - [DEBUG] SOC_FAMILY  = "zynq"
-2026-03-22 10:42:52,898 - [DEBUG] SOC_VARIANT = ""
-2026-03-22 10:42:52,898 - [INFO] Silentconfig project
-2026-03-22 10:42:52,898 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/configs/Kconfig
-2026-03-22 10:42:52,907 - [DEBUG] *
+2026-03-22 12:48:24,717 - [DEBUG] Using xsct from : /opt/pkg/petalinux/sdk/components/xsct/bin/xsct
+2026-03-22 12:48:24,717 - [INFO] Getting Platform info from HW file
+2026-03-22 12:48:24,717 - [DEBUG] Using the soc_family specified by user:zynq
+2026-03-22 12:48:24,732 - [DEBUG] Hardware Configuration:
+2026-03-22 12:48:24,732 - [DEBUG] MACHINE     = "None"
+2026-03-22 12:48:24,732 - [DEBUG] DEVICE_ID   = "7z020"
+2026-03-22 12:48:24,732 - [DEBUG] SOC_FAMILY  = "zynq"
+2026-03-22 12:48:24,733 - [DEBUG] SOC_VARIANT = ""
+2026-03-22 12:48:24,733 - [INFO] Silentconfig project
+2026-03-22 12:48:24,733 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/configs/Kconfig
+2026-03-22 12:48:24,741 - [DEBUG] *
 * PetaLinux System Configuration
 *
 ZYNQ Configuration (SYSTEM_ZYNQ) [Y/?] y
@@ -247,9 +247,9 @@ user layer 0 (USER_LAYER_0) []
 #
 # configuration written to /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config
 #
-2026-03-22 10:42:52,979 - [INFO] Silentconfig rootfs
-2026-03-22 10:42:52,979 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs/Kconfig
-2026-03-22 10:42:52,995 - [DEBUG] *
+2026-03-22 12:48:24,801 - [INFO] Silentconfig rootfs
+2026-03-22 12:48:24,801 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs/Kconfig
+2026-03-22 12:48:24,817 - [DEBUG] *
 * Configuration
 *
 *
@@ -3533,7 +3533,7 @@ Add Users to Sudo users (ADD_USERS_TO_SUDOERS) [petalinux]
 #
 # configuration written to /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config
 #
-2026-03-22 10:42:53,005 - [INFO] Generating configuration files
-2026-03-22 10:42:53,006 - [DEBUG] No multilibs enabled.
-2026-03-22 10:42:53,006 - [DEBUG] No multilibs enabled.
-2026-03-22 10:42:53,023 - [DEBUG] Shutting down bitbake
+2026-03-22 12:48:24,828 - [INFO] Generating configuration files
+2026-03-22 12:48:24,829 - [DEBUG] No multilibs enabled.
+2026-03-22 12:48:24,829 - [DEBUG] No multilibs enabled.
+2026-03-22 12:48:24,846 - [DEBUG] Shutting down bitbake
