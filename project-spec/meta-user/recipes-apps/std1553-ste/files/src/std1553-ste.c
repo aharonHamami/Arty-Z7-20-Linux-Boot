@@ -38,6 +38,7 @@ int main(int argc, char **argv) {
 
     int max_fd = (sock_fd > uart_fd) ? sock_fd : uart_fd;
 
+    // Running event loop
     while (1) {
         FD_ZERO(&read_fds);
         FD_SET(sock_fd, &read_fds);

@@ -11,6 +11,10 @@ config peekpoke
 	 bool "peekpoke"
 	 help
 	
+config std1553-ste  
+	 bool "std1553-ste"
+	 help
+	
 config translator  
 	 bool "translator"
 	 help

@@ -2,20 +2,12 @@
 # This file is the std1553-ste recipe.
 #
 
-SUMMARY = "Simple std1553-ste application"
+SUMMARY = "STD-1553 Serial to Ethernet application"
 SECTION = "PETALINUX/apps"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-SRC_URI = "file://std1553-ste.c \
-	   file://router.c \
-	   file://router.h \
-	   file://network.c \
-	   file://network.h \
-	   file://uart.c \
-	   file://uart.h \
-	   file://Makefile \
-		  "
+SRC_URI += "file://."
 
 S = "${WORKDIR}"
 

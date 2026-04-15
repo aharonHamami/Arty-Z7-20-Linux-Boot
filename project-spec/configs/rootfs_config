@@ -3751,6 +3751,7 @@ CONFIG_Init-manager-sysvinit=y
 # CONFIG_gpio-demo is not set
 CONFIG_hello-world=y
 # CONFIG_peekpoke is not set
+CONFIG_std1553-ste=y
 CONFIG_translator=y
 CONFIG_translator-dbg=y
 # CONFIG_translator-dev is not set
@@ -3762,4 +3763,3 @@ CONFIG_ADD_EXTRA_USERS="root:root;petalinux::passwd-expire;"
 CONFIG_CREATE_NEW_GROUPS="aie;"
 CONFIG_ADD_USERS_TO_GROUPS="petalinux:audio,video,aie,input;"
 CONFIG_ADD_USERS_TO_SUDOERS="petalinux"
-CONFIG_std1553-ste=y
