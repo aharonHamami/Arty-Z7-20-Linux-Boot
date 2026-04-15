@@ -1,14 +1,14 @@
-2026-03-22 12:48:24,717 - [DEBUG] Using xsct from : /opt/pkg/petalinux/sdk/components/xsct/bin/xsct
-2026-03-22 12:48:24,717 - [INFO] Getting Platform info from HW file
-2026-03-22 12:48:24,717 - [DEBUG] Using the soc_family specified by user:zynq
-2026-03-22 12:48:24,732 - [DEBUG] Hardware Configuration:
-2026-03-22 12:48:24,732 - [DEBUG] MACHINE     = "None"
-2026-03-22 12:48:24,732 - [DEBUG] DEVICE_ID   = "7z020"
-2026-03-22 12:48:24,732 - [DEBUG] SOC_FAMILY  = "zynq"
-2026-03-22 12:48:24,733 - [DEBUG] SOC_VARIANT = ""
-2026-03-22 12:48:24,733 - [INFO] Silentconfig project
-2026-03-22 12:48:24,733 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/configs/Kconfig
-2026-03-22 12:48:24,741 - [DEBUG] *
+2026-04-15 16:15:16,448 - [DEBUG] Using xsct from : /opt/pkg/petalinux/sdk/components/xsct/bin/xsct
+2026-04-15 16:15:16,448 - [INFO] Getting Platform info from HW file
+2026-04-15 16:15:16,448 - [DEBUG] Using the soc_family specified by user:zynq
+2026-04-15 16:15:16,463 - [DEBUG] Hardware Configuration:
+2026-04-15 16:15:16,463 - [DEBUG] MACHINE     = "None"
+2026-04-15 16:15:16,463 - [DEBUG] DEVICE_ID   = "7z020"
+2026-04-15 16:15:16,463 - [DEBUG] SOC_FAMILY  = "zynq"
+2026-04-15 16:15:16,463 - [DEBUG] SOC_VARIANT = ""
+2026-04-15 16:15:16,463 - [INFO] Silentconfig project
+2026-04-15 16:15:16,463 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/configs/Kconfig
+2026-04-15 16:15:16,472 - [DEBUG] *
 * PetaLinux System Configuration
 *
 ZYNQ Configuration (SYSTEM_ZYNQ) [Y/?] y
@@ -247,9 +247,9 @@ user layer 0 (USER_LAYER_0) []
 #
 # configuration written to /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config
 #
-2026-03-22 12:48:24,801 - [INFO] Silentconfig rootfs
-2026-03-22 12:48:24,801 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs/Kconfig
-2026-03-22 12:48:24,817 - [DEBUG] *
+2026-04-15 16:15:16,535 - [INFO] Silentconfig rootfs
+2026-04-15 16:15:16,535 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs/Kconfig
+2026-04-15 16:15:16,553 - [DEBUG] *
 * Configuration
 *
 *
@@ -3520,6 +3520,7 @@ choice[1-2]: *
 gpio-demo (gpio-demo) [N/y/?] 
 hello-world (hello-world) [Y/n/?] 
 peekpoke (peekpoke) [N/y/?] 
+std1553-ste (std1553-ste) [Y/n/?] 
 translator (translator) [Y/n/?] 
 translator-dbg (translator-dbg) [Y/n/?] 
 translator-dev (translator-dev) [N/y/?] 
@@ -3533,7 +3534,13 @@ Add Users to Sudo users (ADD_USERS_TO_SUDOERS) [petalinux]
 #
 # configuration written to /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config
 #
-2026-03-22 12:48:24,828 - [INFO] Generating configuration files
-2026-03-22 12:48:24,829 - [DEBUG] No multilibs enabled.
-2026-03-22 12:48:24,829 - [DEBUG] No multilibs enabled.
-2026-03-22 12:48:24,846 - [DEBUG] Shutting down bitbake
+2026-04-15 16:15:16,565 - [INFO] Generating configuration files
+2026-04-15 16:15:16,567 - [DEBUG] No multilibs enabled.
+2026-04-15 16:15:16,567 - [DEBUG] No multilibs enabled.
+2026-04-15 16:15:16,587 - [INFO] Generating plnxtool conf file
+2026-04-15 16:15:16,603 - [DEBUG] python3 /home/aharon/projects/petalinux/artyz7_os_hackster/components/yocto/layers/meta-xilinx/meta-xilinx-core/gen-machine-conf/gen-machine-scripts/rootfsconfigs/rootfs_config.py --update_cfg /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config /home/aharon/projects/petalinux/artyz7_os_hackster/build/conf/plnxtool.conf zynq
+2026-04-15 16:15:16,673 - [DEBUG] 
+
+
+
+2026-04-15 16:15:16,674 - [DEBUG] Shutting down bitbake
