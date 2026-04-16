@@ -18,6 +18,13 @@ INHIBIT_PACKAGE_STRIP = "1"
 
 SRC_URI += "file://."
 
+inherit systemd
+
+SERVICE_FILE="translator.service"
+SYSTEMD_PACKAGES = "${PN}"
+SYSTEMD_SERVICE:${PN} = "${SERVICE_FILE}"
+SYSTEMD_AUTO_ENABLE:${PN} = "enable"
+
 S = "${WORKDIR}"
 
 do_compile() {
@@ -27,4 +34,6 @@ do_compile() {
 do_install() {
 	     install -d ${D}${bindir}
 	     install -m 0755 translator ${D}${bindir}
+		 install -d ${D}${systemd_system_unitdir}
+         install -m 0644 ${WORKDIR}/${SERVICE_FILE} ${D}${systemd_system_unitdir}
 }
