@@ -3751,9 +3751,9 @@ CONFIG_Init-manager-systemd=y
 # CONFIG_gpio-demo is not set
 CONFIG_hello-world=y
 # CONFIG_peekpoke is not set
-CONFIG_std1553-ste=y
+# CONFIG_std1553-ste is not set
 CONFIG_translator=y
-CONFIG_translator-dbg=y
+# CONFIG_translator-dbg is not set
 # CONFIG_translator-dev is not set
 
 #

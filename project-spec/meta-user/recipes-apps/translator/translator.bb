@@ -20,6 +20,7 @@ SRC_URI += "file://."
 
 inherit systemd
 
+# service configuration
 SERVICE_FILE="translator.service"
 SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE:${PN} = "${SERVICE_FILE}"
@@ -34,6 +35,8 @@ do_compile() {
 do_install() {
 	     install -d ${D}${bindir}
 	     install -m 0755 translator ${D}${bindir}
+
+		 # copy app's .service file to /lib/systemd
 		 install -d ${D}${systemd_system_unitdir}
          install -m 0644 ${WORKDIR}/${SERVICE_FILE} ${D}${systemd_system_unitdir}
 }

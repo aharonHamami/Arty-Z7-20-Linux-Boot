@@ -2,6 +2,7 @@
 /project-spec/configs/rootfs_config.old
 /build/
 /images/
+!/images/linux/package-boot.sh
 /pre-built/
 /.petalinux/*
 !/.petalinux/metadata

@@ -1,12 +1,14 @@
 [Unit]
-Description=STD-1553 STE Application
+Description=Translator Test
 After=network.target
 After=dev-ttyPS0.device
 
 [Service]
 Type=simple
 Nice=-10
-ExecStart=/usr/bin/std-1553-ste
+ExecStart=/usr/bin/translator
+StandardOutput=file:/tmp/translator.log
+StandardError=file:/tmp/translator.log
 Restart=on-failure
 RestartSec=1
 
