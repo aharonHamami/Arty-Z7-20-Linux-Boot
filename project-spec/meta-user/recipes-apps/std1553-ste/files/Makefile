@@ -45,19 +45,24 @@ release: CXXFLAGS += -O3 -DNDEBUG
 release: clean all
 
 # Run the program
-run: all
+run: $(APP)
 	@echo Executing program: $(APP)
 	@echo
 	@$(APP)
+
+send: $(APP)
+	@echo Send the executable to the device
+	scp ./$(APP) petalinux@192.168.0.10:/home/petalinux
 
 clean:
 	rm -rf ./$(APP) ./$(OBJ_DIR) ./$(BIN_DIR)
 
 help:
 	@echo "Available targets:"
-	@echo "  all       - Build the main executable"
-	@echo "  debug     - Build with debug flags"
-	@echo "  release   - Build with optimizations"
-	@echo "  run       - Build and run the executable"
-	@echo "  clean     - Remove build artifacts"
-	@echo "  help      - Show this help"
+	@echo "		all		- Build the main executable"
+	@echo "		debug	- Build with debug flags"
+	@echo "		release	- Build with optimizations"
+	@echo "		run		- Build and run the executable"
+	@echo "		send	- Send the executable to a running board
+	@echo "		clean	- Remove build artifacts"
+	@echo "		help	- Show this help"

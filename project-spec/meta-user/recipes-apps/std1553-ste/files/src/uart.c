@@ -22,7 +22,6 @@ int uart_init(const char *device) {
     if (tcgetattr(uart_fd, &tty) != 0) {
         perror("tcgetattr");
         close(uart_fd);
-        uart_fd = -1;
         return -1;
     }
 
@@ -49,34 +48,40 @@ int uart_init(const char *device) {
     if (tcsetattr(uart_fd, TCSANOW, &tty) != 0) {
         perror("tcsetattr");
         close(uart_fd);
-        uart_fd = -1;
         return -1;
     }
 
     return uart_fd;
 }
 
-int uart_read(int uart_fd, uint16_t *buf, int count) {
+ssize_t uart_read(int uart_fd, void* buffer, int buffer_len) {
     if (uart_fd < 0) {
-        fprintf(stderr, "Error: Uart device was not initialized");
+        fprintf(stderr, "Error: Uart device was not initialized\n");
         return -1;
     }
-    return read(uart_fd, buf, count * sizeof(uint16_t));
+
+    int n_recv = read(uart_fd, buffer, buffer_len);
+
+    if(n_recv < 0) {
+        perror("uart: read");
+        return -1;
+    }
+
+    return n_recv;
 }
 
-int uart_write(int uart_fd, const uint16_t *buf, int count) {
+ssize_t uart_write(int uart_fd, void* buffer, int buffer_len) {
     if (uart_fd < 0) {
-        fprintf(stderr, "Error: Uart device was not initialized");
+        fprintf(stderr, "Error: Uart device was not initialized\n");
         return -1;
     }
-    return write(uart_fd, buf, count * sizeof(uint16_t));
+    
+    return write(uart_fd, buffer, buffer_len);
 }
 
 int uart_close(int uart_fd) {
     if (uart_fd >= 0) {
-        int rc = close(uart_fd);
-        uart_fd = -1;
-        return rc;
+        return close(uart_fd);
     }
     
     return -1;

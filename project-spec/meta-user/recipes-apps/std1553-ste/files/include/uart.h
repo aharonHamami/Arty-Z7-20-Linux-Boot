@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include <stdio.h>
 #include <stdint.h>
 
 /**
@@ -18,7 +19,7 @@ int uart_init(const char *device);
  * @param count number of words to read
  * @return number of words read or negative error code
  */
-int uart_read(int uart_fd, uint16_t *buf, int count);
+ssize_t uart_read(int uart_fd, void* buffer, int buffer_len);
 
 /**
  * Send data to the UART interface.
@@ -27,7 +28,7 @@ int uart_read(int uart_fd, uint16_t *buf, int count);
  * @param count number of words to send
  * @return number of words sent or negative error code
  */
-int uart_write(int uart_fd, const uint16_t *buf, int count);
+ssize_t uart_write(int uart_fd, void* buffer, int buffer_len);
 
 /**
  * Close UART connection.

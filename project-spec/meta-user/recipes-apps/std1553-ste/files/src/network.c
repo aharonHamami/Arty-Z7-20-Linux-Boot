@@ -5,7 +5,7 @@
 #include <string.h>
 #include <stdio.h>
 
-int net_init(int port) {
+int udp_init(int port) {
     struct sockaddr_in server_addr;
 
     int sock_fd = socket(AF_INET, SOCK_DGRAM, 0);
@@ -29,16 +29,16 @@ int net_init(int port) {
     return sock_fd;
 }
 
-int net_recv(int sock_fd, void *buf, int size, struct sockaddr_in *client_addr) {
+int udp_recv(int sock_fd, void *buffer, int buff_size, struct sockaddr_in *client_addr) {
     socklen_t len = sizeof(struct sockaddr_in);
-    return recvfrom(sock_fd, buf, size, 0, (struct sockaddr *)client_addr, &len);
+    return recvfrom(sock_fd, buffer, buff_size, 0, (struct sockaddr *)client_addr, &len);
 }
 
-int net_send(int sock_fd, const void *buf, int size, const struct sockaddr_in *client_addr) {
-    return sendto(sock_fd, buf, size, 0, (const struct sockaddr *)client_addr, sizeof(struct sockaddr_in));
+int udp_send(int sock_fd, const void *buffer, int buff_size, const struct sockaddr_in *client_addr) {
+    return sendto(sock_fd, buffer, buff_size, 0, (const struct sockaddr *)client_addr, sizeof(struct sockaddr_in));
 }
 
-void net_close(int sock_fd) {
+void udp_close(int sock_fd) {
     if (sock_fd >= 0) {
         close(sock_fd);
         sock_fd = -1;
