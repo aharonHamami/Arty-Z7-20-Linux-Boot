@@ -17,7 +17,7 @@ int uart_init(const char *device) {
         return -1;
     }
 
-    // Configure a serial port
+    // Get current settings/attributes for the file descriptor
     // Save the state of the file definition into tty
     if (tcgetattr(uart_fd, &tty) != 0) {
         perror("tcgetattr");
