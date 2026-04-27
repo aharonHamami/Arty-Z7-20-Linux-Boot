@@ -1,0 +1,10 @@
+setup.py
+python_rs232/__init__.py
+python_rs232/main.py
+python_rs232.egg-info/PKG-INFO
+python_rs232.egg-info/SOURCES.txt
+python_rs232.egg-info/dependency_links.txt
+python_rs232.egg-info/entry_points.txt
+python_rs232.egg-info/top_level.txt
+python_rs232/utils/__init__.py
+python_rs232/utils/serial.py
