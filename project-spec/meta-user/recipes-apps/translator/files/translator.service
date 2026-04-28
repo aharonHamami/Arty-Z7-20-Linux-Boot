@@ -6,7 +6,7 @@ After=dev-ttyPS0.device
 [Service]
 Type=simple
 Nice=-10
-ExecStart=/usr/bin/translator
+ExecStart=#/usr/bin/translator
 StandardOutput=file:/tmp/translator.log
 StandardError=file:/tmp/translator.log
 Restart=on-failure

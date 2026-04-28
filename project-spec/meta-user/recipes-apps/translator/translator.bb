@@ -24,7 +24,7 @@ inherit systemd
 SERVICE_FILE="translator.service"
 SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE:${PN} = "${SERVICE_FILE}"
-SYSTEMD_AUTO_ENABLE:${PN} = "enable"
+SYSTEMD_AUTO_ENABLE:${PN} = "disable"
 
 S = "${WORKDIR}"
 
