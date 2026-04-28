@@ -9,3 +9,4 @@ CONFIG_translator-dev
 CONFIG_translator-dbg
 CONFIG_std1553-ste
 CONFIG_python-rs232
+CONFIG_rs232-c

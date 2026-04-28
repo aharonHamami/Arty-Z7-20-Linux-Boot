@@ -2648,7 +2648,7 @@ CONFIG_packagegroup-core-buildessential=y
 #
 # python3-setuptools 
 #
-# CONFIG_python3-setuptools is not set
+CONFIG_python3-setuptools=y
 # CONFIG_python3-setuptools-dev is not set
 # CONFIG_python3-setuptools-dbg is not set
 
@@ -3751,6 +3751,8 @@ CONFIG_Init-manager-systemd=y
 # CONFIG_gpio-demo is not set
 CONFIG_hello-world=y
 # CONFIG_peekpoke is not set
+CONFIG_python-rs232=y
+CONFIG_rs232-c=y
 CONFIG_std1553-ste=y
 CONFIG_translator=y
 # CONFIG_translator-dbg is not set
@@ -3763,4 +3765,3 @@ CONFIG_ADD_EXTRA_USERS="root:root;petalinux:petalinux;"
 CONFIG_CREATE_NEW_GROUPS="aie;"
 CONFIG_ADD_USERS_TO_GROUPS="petalinux:audio,video,aie,input;"
 CONFIG_ADD_USERS_TO_SUDOERS="petalinux"
-CONFIG_python-rs232=y

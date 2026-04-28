@@ -11,6 +11,14 @@ config peekpoke
 	 bool "peekpoke"
 	 help
 	
+config python-rs232  
+	 bool "python-rs232"
+	 help
+	
+config rs232-c  
+	 bool "rs232-c"
+	 help
+	
 config std1553-ste  
 	 bool "std1553-ste"
 	 help
