@@ -3,7 +3,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 
-#define RECORDINGS_DIR "$HOME/recordings"
+#define RECORDINGS_DIR "/home/petalinux/recordings"
 
 static size_t get_name_from_time(char* file_name, size_t max_name_size)
 {
