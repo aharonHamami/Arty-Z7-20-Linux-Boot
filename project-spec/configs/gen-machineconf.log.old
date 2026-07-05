@@ -1,14 +1,14 @@
-2026-05-01 13:35:37,194 - [DEBUG] Using xsct from : /opt/pkg/petalinux/sdk/components/xsct/bin/xsct
-2026-05-01 13:35:37,194 - [INFO] Getting Platform info from HW file
-2026-05-01 13:35:37,194 - [DEBUG] Using the soc_family specified by user:zynq
-2026-05-01 13:35:37,210 - [DEBUG] Hardware Configuration:
-2026-05-01 13:35:37,211 - [DEBUG] MACHINE     = "None"
-2026-05-01 13:35:37,211 - [DEBUG] DEVICE_ID   = "7z020"
-2026-05-01 13:35:37,211 - [DEBUG] SOC_FAMILY  = "zynq"
-2026-05-01 13:35:37,211 - [DEBUG] SOC_VARIANT = ""
-2026-05-01 13:35:37,211 - [INFO] Silentconfig project
-2026-05-01 13:35:37,211 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/configs/Kconfig
-2026-05-01 13:35:37,220 - [DEBUG] *
+2026-07-05 19:30:32,693 - [DEBUG] Using xsct from : /opt/pkg/petalinux/sdk/components/xsct/bin/xsct
+2026-07-05 19:30:32,693 - [INFO] Getting Platform info from HW file
+2026-07-05 19:30:32,694 - [DEBUG] Using the soc_family specified by user:zynq
+2026-07-05 19:30:32,709 - [DEBUG] Hardware Configuration:
+2026-07-05 19:30:32,709 - [DEBUG] MACHINE     = "None"
+2026-07-05 19:30:32,709 - [DEBUG] DEVICE_ID   = "7z020"
+2026-07-05 19:30:32,709 - [DEBUG] SOC_FAMILY  = "zynq"
+2026-07-05 19:30:32,709 - [DEBUG] SOC_VARIANT = ""
+2026-07-05 19:30:32,709 - [INFO] Silentconfig project
+2026-07-05 19:30:32,709 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/configs/Kconfig
+2026-07-05 19:30:32,720 - [DEBUG] *
 * PetaLinux System Configuration
 *
 ZYNQ Configuration (SYSTEM_ZYNQ) [Y/?] y
@@ -247,9 +247,9 @@ user layer 0 (USER_LAYER_0) []
 #
 # configuration written to /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/config
 #
-2026-05-01 13:35:37,281 - [INFO] Silentconfig rootfs
-2026-05-01 13:35:37,281 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs/Kconfig
-2026-05-01 13:35:37,298 - [DEBUG] *
+2026-07-05 19:30:32,788 - [INFO] Silentconfig rootfs
+2026-07-05 19:30:32,788 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config conf /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfsconfigs/Kconfig
+2026-07-05 19:30:32,807 - [DEBUG] *
 * Configuration
 *
 *
@@ -2484,7 +2484,7 @@ python3-dbg (python3-dbg) [N/y/?]
 python3-db (python3-db) [N/y/?] 
 python3-fcntl (python3-fcntl) [N/y/?] 
 python3-html (python3-html) [N/y/?] 
-python3-core (python3-core) [N/y/?] 
+python3-core (python3-core) [Y/n/?] 
 python3-distutils (python3-distutils) [N/y/?] 
 python3-terminal (python3-terminal) [N/y/?] 
 python3-pprint (python3-pprint) [N/y/?] 
@@ -2527,8 +2527,8 @@ python3-tests (python3-tests) [N/y/?]
 python3-numbers (python3-numbers) [N/y/?] 
 python3-audio (python3-audio) [N/y/?] 
 python3-pyvenv (python3-pyvenv) [N/y/?] 
-python3-asyncio (python3-asyncio) [N/y/?] 
-python3-misc (python3-misc) [N/y/?] 
+python3-asyncio (python3-asyncio) [Y/n/?] 
+python3-misc (python3-misc) [Y/n/?] 
 python3-datetime (python3-datetime) [N/y/?] 
 python3-compile (python3-compile) [N/y/?] 
 python3-mmap (python3-mmap) [N/y/?] 
@@ -3517,6 +3517,7 @@ Init-manager
 choice[1-2]: *
 * user packages 
 *
+argos-server (argos-server) [Y/n/?] 
 gpio-demo (gpio-demo) [N/y/?] 
 hello-world (hello-world) [Y/n/?] 
 peekpoke (peekpoke) [N/y/?] 
@@ -3536,7 +3537,7 @@ Add Users to Sudo users (ADD_USERS_TO_SUDOERS) [petalinux]
 #
 # configuration written to /home/aharon/projects/petalinux/artyz7_os_hackster/project-spec/configs/rootfs_config
 #
-2026-05-01 13:35:37,312 - [INFO] Generating configuration files
-2026-05-01 13:35:37,313 - [DEBUG] No multilibs enabled.
-2026-05-01 13:35:37,313 - [DEBUG] No multilibs enabled.
-2026-05-01 13:35:37,334 - [DEBUG] Shutting down bitbake
+2026-07-05 19:30:32,824 - [INFO] Generating configuration files
+2026-07-05 19:30:32,825 - [DEBUG] No multilibs enabled.
+2026-07-05 19:30:32,825 - [DEBUG] No multilibs enabled.
+2026-07-05 19:30:32,854 - [DEBUG] Shutting down bitbake

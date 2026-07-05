@@ -2573,7 +2573,7 @@ CONFIG_packagegroup-core-buildessential=y
 # CONFIG_python3-db is not set
 # CONFIG_python3-fcntl is not set
 # CONFIG_python3-html is not set
-# CONFIG_python3-core is not set
+CONFIG_python3-core=y
 # CONFIG_python3-distutils is not set
 # CONFIG_python3-terminal is not set
 # CONFIG_python3-pprint is not set
@@ -2616,8 +2616,8 @@ CONFIG_packagegroup-core-buildessential=y
 # CONFIG_python3-numbers is not set
 # CONFIG_python3-audio is not set
 # CONFIG_python3-pyvenv is not set
-# CONFIG_python3-asyncio is not set
-# CONFIG_python3-misc is not set
+CONFIG_python3-asyncio=y
+CONFIG_python3-misc=y
 # CONFIG_python3-datetime is not set
 # CONFIG_python3-compile is not set
 # CONFIG_python3-mmap is not set
@@ -3748,6 +3748,7 @@ CONFIG_Init-manager-systemd=y
 #
 # user packages 
 #
+CONFIG_argos-server=y
 # CONFIG_gpio-demo is not set
 CONFIG_hello-world=y
 # CONFIG_peekpoke is not set
